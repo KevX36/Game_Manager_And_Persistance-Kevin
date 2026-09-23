@@ -9,24 +9,36 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this);
+        Load();
     }
-
-    // Update is called once per frame
-    void Update()
+    public stats Stats;
+    
+    public void Load()
     {
-        
-    }
+        Stats = FindAnyObjectByType<stats>();
 
+
+
+        Stats.UpdateStatText();
+    }
+    public void Save()
+    {
+
+    }
+    
     public void LoadLevel1()
     {
-        
+        SceneManager.LoadScene("level 1");
+        Load();
     }
     public void LoadLevel2()
     {
-
+        SceneManager.LoadScene("Level 2");
+        Load();
     }
     public void LoadLevel3()
     {
-
+        SceneManager.LoadScene("Level 3");
+        Load();
     }
 }

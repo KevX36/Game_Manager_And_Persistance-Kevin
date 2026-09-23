@@ -1,0 +1,75 @@
+{
+    "version": 1,
+    "name": "level actions",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "fa59b10c-f6e3-40fb-a806-d2d5e3c04974",
+            "actions": [
+                {
+                    "name": "Level 1",
+                    "type": "Button",
+                    "id": "c587cb80-fd44-408c-aa5c-8bde9e21d37a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Level 2",
+                    "type": "Button",
+                    "id": "81f7da87-72c2-4c3a-a22a-ac0ec89436de",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Level 3",
+                    "type": "Button",
+                    "id": "f4bbabe7-a32e-4433-8d00-ce8816828165",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "52cd43c7-dc90-4383-ab28-6f17e7beb398",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Level 1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b83faf07-b6b1-4ad8-bd15-6fc69182d0b7",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Level 2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "542371d3-62c0-423a-b904-30480cf3badb",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Level 3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
