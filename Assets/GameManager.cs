@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -67,19 +68,7 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public void Load()
-    {
-
-
-
-
-        UpdateStatText();
-    }
-    public void Save()
-    {
-        
-        
-    }
+   
     
     public void LoadLevel1()
     {
@@ -99,4 +88,55 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level 3");
         Load();
     }
+
+    public void Load()
+    {
+        if(File.Exists(Application.persistentDataPath + "/playerinfo.dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat",FileMode.Open);
+            StatData data = (StatData)bf.Deserialize(file);
+            file.Close();
+
+            health = data.health;
+            exp = data.exp;
+            score = data.score;
+            mana = data.mana;
+            lv = data.lv;
+            atk = data.atk;
+        }
+
+
+
+        UpdateStatText();
+    }
+    public void Save()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
+
+
+        StatData data = new StatData();
+        data.health = health;
+        data.exp = exp;
+        data.score = score;
+        data.mana = mana;
+        data.lv = lv;
+        data.atk = atk;
+
+        bf.Serialize(file,data);
+        file.Close();
+    }
+
+
+}
+[Serializable]
+class StatData
+{
+    public int health;
+    public int exp;
+    public int score;
+    public int mana;
+    public int lv;
+    public int atk;
 }
