@@ -112,20 +112,40 @@ public class GameManager : MonoBehaviour
     }
     public void Save()
     {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
+        if(File.Exists(Application.persistentDataPath + "/playerinfo.dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
 
 
-        StatData data = new StatData();
-        data.health = health;
-        data.exp = exp;
-        data.score = score;
-        data.mana = mana;
-        data.lv = lv;
-        data.atk = atk;
+            StatData data = new StatData();
+            data.health = health;
+            data.exp = exp;
+            data.score = score;
+            data.mana = mana;
+            data.lv = lv;
+            data.atk = atk;
 
-        bf.Serialize(file,data);
-        file.Close();
+            bf.Serialize(file, data);
+            file.Close();
+        }
+        else
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Create);
+
+
+            StatData data = new StatData();
+            data.health = health;
+            data.exp = exp;
+            data.score = score;
+            data.mana = mana;
+            data.lv = lv;
+            data.atk = atk;
+
+            bf.Serialize(file, data);
+            file.Close();
+        }
     }
 
 
